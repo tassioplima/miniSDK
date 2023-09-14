@@ -1,0 +1,6 @@
+{
+  "appPackage": "com.challenge.adsdroid.android",
+  "appActivity": "com.challenge.adsdroid.android.MainActivity",
+  "udid": "192.168.1.68:5555",
+  "appLocal": ["",""]
+}

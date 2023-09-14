@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "key": "",
+  "device": ["Google Pixel 3", "iPhone 11 Pro"],
+  "os_version": ["9.0", "13"],
+  "apps" : ["bs://" , ",bs://"],
+  "environments": [{
+    "device": "Google Pixel 3",
+    "os_version":  "9.0"
+  },{
+    "device": "Samsung Galaxy S10e",
+    "os_version":  "9.0"
+  }]
+}
