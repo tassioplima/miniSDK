@@ -48,8 +48,6 @@ public class PageMini extends PageBase{
     @iOSXCUITFindBy(accessibility = "N/A")
     private MobileElement closeButton;
 
-
-
     public void openInterstitialAd(){
         this.interstitialButton.click();
         Commons.waitForVisibilityElement(interstitialAd);
@@ -62,7 +60,6 @@ public class PageMini extends PageBase{
         String statusInterstitial = interstitialStatus.getText();
         Assertions.assertEquals("Ad Dismissed", statusInterstitial);
     }
-
 
     public void openBannerAd(){
         this.bannerButton.click();
