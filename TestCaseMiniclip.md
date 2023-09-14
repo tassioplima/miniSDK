@@ -1,4 +1,4 @@
-﻿Test Case Title: Ad Display after click on Interstitial Button
+﻿#### Test Case Title: Ad Display after click on Interstitial Button
 
 Test Case ID: TC-001
 
@@ -60,7 +60,7 @@ The ad is dismissed upon clicking the close option.
 
 The user is returned to the previous screen after dismissing the ad.
 
-Test Case Title: Ad Display after click on Banner Button
+#### Test Case Title: Ad Display after click on Banner Button
 
 Test Case ID: TC-002
 

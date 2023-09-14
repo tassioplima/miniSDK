@@ -11,6 +11,8 @@ in this case I used to use appium because is a flexible solution to automate And
 The test "Validate change of banner status" is not running properly because the "closeButton" for the Banner cannot be found maybe will be need a support with developer team to validate the id button for the banner close button. 
 
 
+#### Description:
+
 Automation project with Java + Gradle using Browser Stack as a Device Farm and GitHub Action (CI) to automate the Automation App, GithubPages to deploy Allure Serve to see test result/report, PageObject/Screen and PageFactory as a structure.
 
 ### Getting Started:
