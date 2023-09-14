@@ -12,6 +12,7 @@ Configuration:
 - Android Emulator or physical device
 - Appium Server installed 
 - Browser Stack Account and Keys
+- Browser Stack Account and Keys
 
 Running:
 
