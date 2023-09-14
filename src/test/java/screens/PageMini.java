@@ -50,7 +50,7 @@ public class PageMini extends PageBase{
 
 
 
-    public void openIntertitialAd(){
+    public void openInterstitialAd(){
         this.interstitialButton.click();
         Commons.waitForVisibilityElement(interstitialAd);
         this.interstitialAd.isDisplayed();
@@ -74,6 +74,7 @@ public class PageMini extends PageBase{
     }
 
     public void closeBannerValidateStatus(){
+        Commons.waitForVisibilityElement(closeButton);
         this.closeButton.click();
         String statusBanner =  bannerStatus.getText();
         Assertions.assertEquals("Ad Dismissed", statusBanner);

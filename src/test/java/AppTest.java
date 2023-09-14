@@ -10,7 +10,7 @@ public class AppTest extends Hooks{
     @DisplayName("Validate change of interstitial status")
     public void changeStatusInterstitial() {
         pageMini = new PageMini(driver);
-        pageMini.openIntertitialAd();
+        pageMini.openInterstitialAd();
         pageMini.validateStatusInterstitial();
     }
 
