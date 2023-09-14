@@ -1,14 +1,14 @@
 # Automation
 
-
 [![Appium CI](https://github.com/tassioplima/miniSDK/actions/workflows/browserstack.yml/badge.svg)](https://github.com/tassioplima/miniSDK/actions)
 [![Allure Report](https://img.shields.io/badge/Allure%20Report-deployed-yellowgreen)](https://tassioplima.github.io/miniSDK/)
+
 #### Test solution: 
 
 We can do manual and automation tests for this solution because both is a good solution to validate the feature, we can do integration tests and regression test, first of all starting doing manual tests to understand if everything is working properly in case the find some bug need to be validated with QA and Dev team, understand the cause and the solution for a future correction, after all the validation we will start with select the framework to create automation script,
 in this case I used to use appium because is a flexible solution to automate Android and iOS application, as well we have other tools to help with this, GitHub Actions to create CI/CD, BrowserStack to integrate with device farms, and Allure to get report.
 
-The test "Validate change of banner status" is not running properly because the "closeButton" for the Banner cannot be found  
+The test "Validate change of banner status" is not running properly because the "closeButton" for the Banner cannot be found maybe will be need a support with developer team to validate the id button for the banner close button. 
 
 
 Automation project with Java + Gradle using Browser Stack as a Device Farm and GitHub Action (CI) to automate the Automation App, GithubPages to deploy Allure Serve to see test result/report, PageObject/Screen and PageFactory as a structure.
@@ -18,10 +18,11 @@ Automation project with Java + Gradle using Browser Stack as a Device Farm and G
 #### Configuration:
 
 - Java JDK 1.8
-- Gradle 8.0
+- Gradle 8.3
 - Android SDK updated
 - Android Emulator or physical device
-- Appium Server installed 
+- iOS Simulator or physical device
+- Appium Server 2.0 installed https://bitrise.io/blog/post/getting-started-with-appium-2-0-your-beginners-guide
 - Browser Stack Account and Keys
 - Browser Stack Account and Keys
 
