@@ -14,6 +14,7 @@ public class AppTest extends Hooks{
         pageMini.validateStatusInterstitial();
     }
 
+
     @Test
     @DisplayName("Validate change of banner status")
     public void changeStatusBanner() {
