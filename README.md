@@ -48,19 +48,29 @@ iOS:
 ``` sh
 ./gradlew test --tests "AppTest" -DMOBILE=ios
 ```
-We have two possibilities for execution the local one and the remote, using the property boolean false or true you can setup on cli command
 
+We have 3 possibilities for execution the tests locally, remotely or via device farm, setting the variable RUN to, local, remote or farm.
 
-true = execution using  remote.json and runs on Browser Stack using some secrets keys on github repository
+local = execute locally on physical devices.
+remote = execute using variables from the GitHub Action, recommended for CI executions.
+farm =  you can execute setting some variables on remote.json and execute from you own computer to a device farm.
+
+Running on CI:
 
 ``` sh
-./gradlew test --tests "AppTest" -DMOBILE=android -DEXEC=true
+./gradlew test --tests "AppTest" -DMOBILE=android -DRUN=remote
 ```
 
-false = execution using local.json  properties locally
+Running locally:
 
 ``` sh
-./gradlew test --tests "AppTest" -DMOBILE=android -DEXEC=false
+./gradlew test --tests "AppTest" -DMOBILE=android -DRUN=local
+```
+
+Running on device farm:
+
+``` sh
+./gradlew test --tests "AppTest" -DMOBILE=android -DRUN=farm
 ```
 
 ### Building Allure report

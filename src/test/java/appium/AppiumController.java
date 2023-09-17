@@ -17,30 +17,37 @@ public class AppiumController {
 
     public void startAppium() throws Exception{
             if (Env.MOBILE.getEnv().equalsIgnoreCase("android")) {
-
-                if (Env.BOOLENV.getBool()){
-                    androidDriver = new AndroidDriver(new URL(server), AndroidCapabilities.getAndroidCapabilities());
-                } else {
-                    androidDriver = new AndroidDriver(new URL(local), AndroidCapabilities.getAndroidCapabilitiesLocal());
+                switch(Env.RUN.getEnv()){
+                    case "local":
+                        androidDriver = new AndroidDriver(new URL(local), AndroidCapabilities.getAndroidCapabilitiesLocal());
+                        break;
+                    case "remote":
+                        androidDriver = new AndroidDriver(new URL(server), AndroidCapabilities.getAndroidUiAutomatorCap());
+                        break;
+                    case "farm":
+                        androidDriver = new AndroidDriver(new URL(farm), AndroidCapabilities.getAndroidUiAutomatorCap());
+                        break;
                 }
             } else if (Env.MOBILE.getEnv().equalsIgnoreCase("ios")) {
-                if (Env.BOOLENV.getBool()){
-                    iOSDriver = new IOSDriver(new URL(server), iOSCapabilities.getIOSCapabilities());
-                } else {
-                    iOSDriver = new IOSDriver(new URL(local), iOSCapabilities.getIOSCapabilitiesLocal());
+                switch (Env.RUN.getEnv()) {
+                    case "local":
+                        iOSDriver = new IOSDriver(new URL(local), iOSCapabilities.getIOSCapabilitiesLocal());
+                        break;
+                    case "remote":
+                        iOSDriver = new IOSDriver(new URL(server), iOSCapabilities.getiOSXCUITestCap());
+                        break;
+                    case "farm":
+                        iOSDriver = new IOSDriver(new URL(farm), iOSCapabilities.getiOSXCUITestCap());
+                        break;
                 }
             }
     }
 
-    public static void quitDriver() {
-        try {
+    public static void quitDriver()  throws Exception{
             if (Env.MOBILE.getEnv().equalsIgnoreCase("android") && androidDriver != null) {
                 androidDriver.quit();
             } else if (Env.MOBILE.getEnv().equalsIgnoreCase("ios") && iOSDriver != null) {
                 iOSDriver.quit();
             }
-        } catch (Exception e) {
-            e.printStackTrace(); // Handle or log the exception as needed
-        }
     }
 }
