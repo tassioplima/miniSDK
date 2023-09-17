@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun Sep 17 19:29:39 GMT 2023","Sun Sep 17 19:29:39 GMT 2023","468","","AppTest","","AppTest","changeStatusInterstitial","Validate change of interstitial status",""
+"broken","Sun Sep 17 19:29:38 GMT 2023","Sun Sep 17 19:29:39 GMT 2023","550","","AppTest","","AppTest","changeStatusBanner","Validate change of banner status",""
+"broken","Sun Sep 17 19:29:34 GMT 2023","Sun Sep 17 19:29:38 GMT 2023","3260","","AppTest","","AppTest","validateStatusBanner","Validate starting status Banner",""
+"broken","Sun Sep 17 19:29:38 GMT 2023","Sun Sep 17 19:29:38 GMT 2023","668","","AppTest","","AppTest","validateStatusInterstitial","Validate starting status Interstitial",""
