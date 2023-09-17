@@ -1,19 +1,26 @@
 package utils;
 
 import appium.AppiumController;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class Commons extends AppiumController {
 
-    public static void waitForVisibilityElement(MobileElement mobile) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+    private static Duration duration = Duration.ofSeconds(30);
+    public static void waitForVisibilityElement(WebElement mobile) {
+        WebDriverWait wait = new WebDriverWait(iOSDriver, duration);
         wait.until(ExpectedConditions.visibilityOf(mobile));
     }
 
     public static void hideKeyboard(){
-        driver.hideKeyboard();
+        if (Env.MOBILE.getEnv().equalsIgnoreCase("android")){
+            androidDriver.hideKeyboard();
+    } else {
+            iOSDriver.hideKeyboard();
+        }
     }
-    
+
 }

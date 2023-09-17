@@ -1,10 +1,8 @@
 package appium;
 
 import java.net.URL;
-
-import io.appium.java_client.AppiumDriver;
-
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import utils.AndroidCapabilities;
 import utils.Env;
 import utils.iOSCapabilities;
@@ -13,28 +11,34 @@ public class AppiumController {
     public static final String server = "https://" + Env.AUTOMATE_USERNAME.getEnv() + ":" + Env.AUTOMATE_ACCESS_KEY.getEnv() + "@hub-cloud.browserstack.com/wd/hub";
     public static final String local = "http://127.0.0.1:4723/";
 
-    public static AppiumDriver<MobileElement>  driver;
+    public static AndroidDriver androidDriver;
+    public static IOSDriver iOSDriver;
 
-    public void startAppium() throws Exception {
-
-        if (Env.MOBILE.getEnv().equalsIgnoreCase("android")){
-            if (Env.BOOLENV.getBool()){
-                driver = new AppiumDriver<MobileElement>(new URL(server), AndroidCapabilities.getAndroidCapabilities());
-            } else {
-                driver = new AppiumDriver<MobileElement>(new URL(local), AndroidCapabilities.getAndroidCapabilitiesLocal());
+    public void startAppium() {
+        try {
+            if (Env.MOBILE.getEnv().equalsIgnoreCase("android")) {
+                androidDriver = Env.BOOLENV.getBool() ?
+                        new AndroidDriver(new URL(server), AndroidCapabilities.getAndroidCapabilities()) :
+                        new AndroidDriver(new URL(local), AndroidCapabilities.getAndroidCapabilitiesLocal());
+            } else if (Env.MOBILE.getEnv().equalsIgnoreCase("ios")) {
+                iOSDriver = Env.BOOLENV.getBool() ?
+                        new IOSDriver(new URL(server), iOSCapabilities.getIOSCapabilities()) :
+                        new IOSDriver(new URL(local), iOSCapabilities.getIOSCapabilitiesLocal());
             }
-
-        } else if (Env.MOBILE.getEnv().equalsIgnoreCase("ios")){
-            if (Env.BOOLENV.getBool()){
-                driver = new AppiumDriver<MobileElement>(new URL(server), iOSCapabilities.getIOSCapabilities());
-            } else {
-                driver = new AppiumDriver<MobileElement>(new URL(local), iOSCapabilities.getIOSCapabilitiesLocal());
-            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle or log the exception as needed
         }
     }
-    public void stopAppium() throws Exception {
-        if (driver != null) {
-            driver.quit();
+
+    public static void quitDriver() {
+        try {
+            if (Env.MOBILE.getEnv().equalsIgnoreCase("android") && androidDriver != null) {
+                androidDriver.quit();
+            } else if (Env.MOBILE.getEnv().equalsIgnoreCase("ios") && iOSDriver != null) {
+                iOSDriver.quit();
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle or log the exception as needed
         }
     }
 }

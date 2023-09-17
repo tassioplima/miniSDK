@@ -8,14 +8,22 @@ import utils.Print;
 public class Hooks extends AppiumController{
 
     @BeforeEach
-    public void setUp() throws Exception {
-        startAppium();
+    public void setUp() {
+        try {
+            startAppium();
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle or log the exception as needed
+        }
     }
 
     @AfterEach
-    public void tearDown(TestInfo info) throws Exception {
-        Print.takeScreenShot(info);
-        stopAppium();
+    public void tearDown(TestInfo info) {
+        try {
+            Print.takeScreenShot(info);
+            quitDriver();
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle or log the exception as needed
+        }
     }
 
 }
