@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun Sep 17 20:40:26 GMT 2023","Sun Sep 17 20:40:30 GMT 2023","4072","","AppTest","","AppTest","changeStatusInterstitial","Validate change of interstitial status",""
