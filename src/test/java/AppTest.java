@@ -18,19 +18,16 @@ public class AppTest extends Hooks{
         pageMini.openInterstitialAd();
         pageMini.validateStatusInterstitial();
     }
-    @Test
     @DisplayName("Validate change of banner status")
     public void changeStatusBanner() {
         pageMini.openBannerAd();
         pageMini.validateStatusBanner();
         pageMini.closeBannerValidateStatus();
     }
-    @Test
     @DisplayName("Validate starting status Interstitial")
     public void validateStatusInterstitial() {
         pageMini.loadStatusInterstitial();
     }
-    @Test
     @DisplayName("Validate starting status Banner")
     public void validateStatusBanner() {
         pageMini.loadStatusBanner();

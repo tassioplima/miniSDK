@@ -39,6 +39,7 @@ test {
     }
     systemProperty "MOBILE", System.getProperty("MOBILE")
     systemProperty "EXEC", Boolean.getBoolean("EXEC")
+    systemProperty "RUN", System.getProperty("RUN")
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
