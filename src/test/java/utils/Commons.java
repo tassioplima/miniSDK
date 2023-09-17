@@ -11,7 +11,7 @@ public class Commons extends AppiumController {
 
     private static Duration duration = Duration.ofSeconds(30);
     public static void waitForVisibilityElement(WebElement mobile) {
-        WebDriverWait wait = new WebDriverWait(iOSDriver, duration);
+        WebDriverWait wait = new WebDriverWait(androidDriver, duration);
         wait.until(ExpectedConditions.visibilityOf(mobile));
     }
 
