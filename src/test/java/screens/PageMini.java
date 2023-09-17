@@ -1,62 +1,62 @@
 package screens;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.MobileElement;
+import appium.AppiumController;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.jupiter.api.Assertions;
-import utils.Commons;
+import org.openqa.selenium.WebElement;
+
 
 public class PageMini extends PageBase{
 
-    private MobileDriver<MobileElement> driver;
-
-    public PageMini(AppiumDriver<MobileElement> driver){
-        super(driver);
+    public PageMini(AndroidDriver androidDriver) {
+        super(androidDriver);
+    }
+    public PageMini(IOSDriver iosDriver) {
+        super(iosDriver);
     }
 
     @AndroidFindBy(id = "interstitialTextView")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement interstitial;
+    private WebElement interstitial;
 
     @AndroidFindBy(id = "interstitialCurrentStateTextView")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement interstitialStatus;
+    private WebElement interstitialStatus;
 
     @AndroidFindBy(id = "interstitialButton")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement interstitialButton;
+    private WebElement interstitialButton;
 
     @AndroidFindBy(id = "bannerTextView")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement bannerText;
+    private WebElement bannerText;
 
     @AndroidFindBy(id = "bannerCurrentStateTextView")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement bannerStatus;
+    private WebElement bannerStatus;
 
     @AndroidFindBy(id = "bannerButton")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement bannerButton;
+    private WebElement bannerButton;
 
     @AndroidFindBy(id = "imageView2")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement interstitialAd;
+    private WebElement interstitialAd;
 
     @AndroidFindBy(id = "closeButton")
     @iOSXCUITFindBy(accessibility = "N/A")
-    private MobileElement closeButton;
+    private WebElement closeButton;
 
     public void openInterstitialAd(){
         this.interstitialButton.click();
-        Commons.waitForVisibilityElement(interstitialAd);
         this.interstitialAd.isDisplayed();
         this.closeButton.click();
     }
 
     public void validateStatusInterstitial(){
-        Commons.waitForVisibilityElement(interstitialStatus);
         String statusInterstitial = interstitialStatus.getText();
         Assertions.assertEquals("Ad Dismissed", statusInterstitial);
     }
@@ -71,7 +71,6 @@ public class PageMini extends PageBase{
     }
 
     public void closeBannerValidateStatus(){
-        Commons.waitForVisibilityElement(closeButton);
         this.closeButton.click();
         String statusBanner =  bannerStatus.getText();
         Assertions.assertEquals("Ad Dismissed", statusBanner);
