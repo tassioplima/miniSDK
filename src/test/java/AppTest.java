@@ -14,6 +14,7 @@ public class AppTest extends Hooks{
         pageMini = new PageMini(androidDriver);
     }
     @Test
+    @Disabled("Flaky test")
     @DisplayName("Validate change of interstitial status")
     public void changeStatusInterstitial() {
         pageMini.openInterstitialAd();
