@@ -49,11 +49,11 @@ iOS:
 ./gradlew test --tests "AppTest" -DMOBILE=ios
 ```
 
-We have 3 possibilities for execution the tests locally, remotely or via device farm, setting the variable RUN to, local, remote or farm.
+We have 3 possibilities for executing the tests locally, remotely, or via device farm, setting the variable RUN to, local, remote or farm.
 
 local = execute locally on physical devices.
-remote = execute using variables from the GitHub Action, recommended for CI executions.
-farm =  you can execute setting some variables on remote.json and execute from you own computer to a device farm.
+remote = run using variables from the GitHub Action, recommended for CI executions.
+farm =  you can execute setting some variables on remote.json and execute from your computer to a device farm.
 
 Running on CI:
 
