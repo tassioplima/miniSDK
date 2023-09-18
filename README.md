@@ -73,6 +73,6 @@ To build a report, and browse it use the following command:
 ./gradlew allureServe
 ```
 
-Github Pages with Allure report results: [ALLURE](https://tassioplima.github.io/miniSDK/)
+GitHub Pages with Allure report results: [ALLURE](https://tassioplima.github.io/miniSDK/)
 
 ![img.png](img/img.png)
