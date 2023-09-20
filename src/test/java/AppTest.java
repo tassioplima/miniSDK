@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import screens.PageMini;
 
 public class AppTest extends Hooks{
+    
     public PageMini pageMini;
 
     @BeforeEach
