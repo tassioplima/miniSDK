@@ -20,6 +20,7 @@ public class Hooks extends AppiumController{
     public void tearDown(TestInfo info) {
         try {
             Print.takeScreenShot(info);
+            Print.screenShot();
             quitDriver();
         } catch (Exception e) {
             e.printStackTrace(); // Handle or log the exception as needed
