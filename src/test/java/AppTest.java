@@ -13,6 +13,7 @@ public class AppTest extends Hooks{
     public void setup(){
         pageMini = new PageMini(androidDriver);
     }
+    
     @Test
     @Disabled("Flaky test")
     @DisplayName("Validate change of interstitial status")
@@ -20,6 +21,7 @@ public class AppTest extends Hooks{
         pageMini.openInterstitialAd();
         pageMini.validateStatusInterstitial();
     }
+    
     @Test
     @Disabled("Banner close button can't be found")
     @DisplayName("Validate change of banner status")
@@ -28,11 +30,13 @@ public class AppTest extends Hooks{
         pageMini.validateStatusBanner();
         pageMini.closeBannerValidateStatus();
     }
+    
     @Test
     @DisplayName("Validate starting status Interstitial")
     public void validateStatusInterstitial() {
         pageMini.loadStatusInterstitial();
     }
+    
     @Test
     @DisplayName("Validate starting status Banner")
     public void validateStatusBanner() {
